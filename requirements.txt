@@ -1,3 +1,4 @@
 bluepy
 pycryptodomex
 paho-mqtt
+pybluez
