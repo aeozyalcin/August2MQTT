@@ -1,0 +1,3 @@
+bluepy
+pycryptodomex
+paho-mqtt
