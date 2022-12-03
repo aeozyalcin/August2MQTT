@@ -17,10 +17,21 @@ __The main benefit here is latency__. When you send the MQTT command to unlock, 
 This code is *rough*. It works, but it ain't sexy. You will notice a crap ton of commented lines, and maybe even comments from me/previous devs. But once you get it up and running, you will like it! 
 
 So here is how you start:
-1. Clone the repo. And create yourself a config.json file with the info for youe lock. Follow the instructions [here](https://github.com/Friendly0Fire/augustpy#putting-it-all-together) on how to create your lock config file. 
+1. Clone the repo, and start by modifying `config.json` file with the info for your lock. Follow the instructions [here](https://github.com/Friendly0Fire/augustpy#putting-it-all-together) on how to create your lock config file. 
+
+```
+{"bluetoothAddress": "0A:1B:2C:3D:4E:5F", "handshakeKey": "ABCDEF0123456789ABCDEF0123456789", "handshakeKeyIndex": 1}
+```
 2. run setup.sh, which will download the required python libraries.
 3. Go into `mqtt_august_bridge.py` and enter your MQTT server details. [Start here](https://github.com/aeozyalcin/August2MQTT/blob/7c642023cf61f34ea4f855b16ca4c509ae64ce11/mqtt_august_bridge.py#L65). This will eventually go into `config.json` that you configured in step 1.
-4. Just run `python3 mqtt_august_bridge.py`. You will probably need to run it as sudo, since the we need access to the BLE hardware on your host. 
+
+```
+broker_address="192.168.0.192" # <== this is where your MQTT server IP goes. No need for the port.
+client = mqtt.Client("august_rpi") # <== this is just the name of the MQTT client. I called mine "august_rpi"
+client.username_pw_set("august", "lock") # <== use this if your MQTT server requires authentication. If not, you can comment out this whole line.
+client.connect(broker_address)
+```
+4. Just run `python3 mqtt_august_bridge.py`. *You will probably need to run it as sudo, since the we need access to the BLE hardware on your host.* 
 
 Things to know:
 - The bridge will listen for MQTT topic `august/lock/set` to wait for lock/unlock commands.
