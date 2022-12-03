@@ -1,6 +1,8 @@
 # August2MQTT
 Ditch the August WiFi bridge, turn your Raspberry Pi into an MQTT Bridge, and own your lock!
 
+![](lock.gif)
+
 This repo utilizes a heavily modified version of [Friendly0Fire/augustpy](https://github.com/Friendly0Fire/augustpy) and a moderately modified version of [adamf/BLE](https://github.com/adamf/BLE). The whole point of this repo is to create a quick/lightweight MQTT bridge for August locks, without using the August WiFi bridge/August servers. I run this on a Raspberry Pi Zero W that's within 20-30 ft of my lock.
 
 # Umm, you must not have heard. There is now a native BLE integration for August Locks. Why should I use your repo?
