@@ -62,9 +62,9 @@ def on_mqtt(client, userdata, message):
 
 mqtt_event = threading.Event()
 
-broker_address="192.168.0.192"
-client = mqtt.Client("august_rpi")
-client.username_pw_set("august", "lock")
+broker_address="192.168.0.192" # <== this is where your MQTT server IP goes. No need for the port.
+client = mqtt.Client("august_rpi") # <== this is just the name of the MQTT client. I called mine "august_rpi"
+client.username_pw_set("august", "lock") # <== use this if your MQTT server requires authentication. If not, you can comment out this whole line.
 client.connect(broker_address)
 
 client.publish("august/bridge/availability", "online", retain=True)
