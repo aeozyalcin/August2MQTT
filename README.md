@@ -19,7 +19,7 @@ This code is *rough*. It works, but it ain't sexy. You will notice a crap ton of
 So here is how you start:
 1. Clone the repo. And create yourself a config.json file with the info for youe lock. Follow the instructions [here](https://github.com/Friendly0Fire/augustpy#setup) on how to create your lock config file. 
 2. run setup.sh, which will download the required python libraries.
-3. Go into `mqtt_august_bridge.py` and enter your MQTT server details. [Start here](https://github.com/aeozyalcin/August2MQTT/blob/7c642023cf61f34ea4f855b16ca4c509ae64ce11/mqtt_august_bridge.py#L65).
+3. Go into `mqtt_august_bridge.py` and enter your MQTT server details. [Start here](https://github.com/aeozyalcin/August2MQTT/blob/7c642023cf61f34ea4f855b16ca4c509ae64ce11/mqtt_august_bridge.py#L65). This will eventually go into `config.json` that you configured in step 1.
 4. Just run `python3 mqtt_august_bridge.py`. You will probably need to run it as sudo, since the we need access to the BLE hardware on your host. 
 
 Things to know:
