@@ -25,7 +25,7 @@ So here is how you start:
 {"bluetoothAddress": "0A:1B:2C:3D:4E:5F", "handshakeKey": "ABCDEF0123456789ABCDEF0123456789", "handshakeKeyIndex": 1}
 ```
 2. run setup.sh, which will download the required python libraries.
-3. Go into `mqtt_august_bridge.py` and enter your MQTT server details. [Start here](https://github.com/aeozyalcin/August2MQTT/blob/7c642023cf61f34ea4f855b16ca4c509ae64ce11/mqtt_august_bridge.py#L65). This will eventually go into `config.json` that you configured in step 1.
+3. Go into `mqtt_august_bridge.py` and enter your MQTT server details. [Start here](https://github.com/aeozyalcin/August2MQTT/blob/7c642023cf61f34ea4f855b16ca4c509ae64ce11/mqtt_august_bridge.py#L65). <== *TODO: This will eventually go into `config.json` that you configured in step 1.*
 
 ```
 broker_address="192.168.0.192" # <== this is where your MQTT server IP goes. No need for the port.
@@ -39,6 +39,15 @@ Things to know:
 - The bridge will listen for MQTT topic `august/lock/set` to wait for lock/unlock commands.
 - The bridge will publish to MQTT topic `august/lock/state`, when the lock reports a state change.
 - The bridge will publish to MQTT topic `august/lock/voltage`, when it gets a lock battery voltage update.
+
+# FAQ
+**Which locks does this code work with?**
+
+I use this with an August Gen3 Pro lock. This should in theory work with all August BLE locks, and even some Yale locks (I believe Yale has acquired August). If t works or doesn't work for you, create an issue and let me know!
+
+**What hardware should I run it on?**
+
+If you are/plan on using the Home Assistant Bluetooth integration, I don't recommend running this on the same machine you are running Home Assistant on. Because doing so will prevent HA from being able to access the local Bluetooth adapter. If you don't care about using the Bluetooth integration in HA, then you should be OK to use this on the same machine as your HA. I run it on a Raspberry Pi Zero W, and it's perfect for the job. You can in theory use any linux machine with any Bluetooth adapter supported by Bluez.
 
 # I want to contribute!
 Awesome! This is my first repo on GitHub, so I welcome other people's contributions! The way I have things together, it's meant for more advanced people, and cleaning up the code and documentation would definitely make it easier for less experienced people. I hope we get there one day. So feel free to create issues/make suggestions.
