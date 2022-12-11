@@ -53,5 +53,9 @@ If you are/plan on using the Home Assistant Bluetooth integration, I don't recom
 
 Did you create your own `config.json` for your lock? You will get that error if you are using the default example `config.json` that came with the repo. Otherwise, you might have a typo in your `config.json`. 
 
+**I am getting an error `_bluetooth.error: (1, 'Operation not permitted')`. What's up with that?**
+
+That usually means that you are not running `mqtt_august_bridge.py` as root. You need to run it as root user, because we need to access the bluetooth adapter. Try running it as `sudo python3 mqtt_august_bridge.py` instead.
+
 # I want to contribute!
 Awesome! This is my first repo on GitHub, so I welcome other people's contributions! The way I have things together, it's meant for more advanced people, and cleaning up the code and documentation would definitely make it easier for less experienced people. I hope we get there one day. So feel free to create issues/make suggestions.
