@@ -49,5 +49,9 @@ I use this with an August Gen3 Pro lock. This should in theory work with all Aug
 
 If you are/plan on using the Home Assistant Bluetooth integration, I don't recommend running this on the same machine you are running Home Assistant on. Because doing so will prevent HA from being able to access the local Bluetooth adapter. If you don't care about using the Bluetooth integration in HA, then you should be OK to use this on the same machine as your HA. I run it on a Raspberry Pi Zero W, and it's perfect for the job. You can in theory use any linux machine with any Bluetooth adapter supported by Bluez.
 
+**I am getting an error `ValueError: non-hexadecimal number found in fromhex() arg at position 0` when I try to run `mqtt_august_bridge.py`. What's up with that?**
+
+Did you create your own `config.json` for your lock? You will get that error if you are using the default example `config.json` that came with the repo. Otherwise, you might have a typo in your `config.json`. 
+
 # I want to contribute!
 Awesome! This is my first repo on GitHub, so I welcome other people's contributions! The way I have things together, it's meant for more advanced people, and cleaning up the code and documentation would definitely make it easier for less experienced people. I hope we get there one day. So feel free to create issues/make suggestions.
