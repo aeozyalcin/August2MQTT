@@ -15,6 +15,9 @@ Yeah probably. But hear me out. That version of the blescan.py I modified allows
 
 __The main benefit here is latency__. When you send the command to unlock over MQTT, the lock should receive this command within a second (that's where that 1 second connection interval comes in). And when you manually lock/unlock the door, again, an MQTT message will appear within a second. The native connection is especially slow in this scenario of capturing manual lock state changes, since it has to periodically connect and poll the lock. This project establishes near instant state updates by utilizing BLE notifications, which is only possible because we maintain an active connection with the lock. The slowest part of this whole thing right now is the Home Assistant/MQTT layer - but still much quicker than the native HA BLE integration for August Locks.
 
+Update 3/8/23: Batteries lasted 6 months. No issue with drain at all.
+
+
 # So how do I start using this?
 This code is *rough*. It works, but it ain't pretty. You will notice a ton of commented out lines, and maybe even comments from me/previous devs. But once you get it up and running, it will get the job done! 
 
